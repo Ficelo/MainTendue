@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
-import {Friend, User, UserService} from '../../services/user.service';
+import {User, UserService} from '../../services/user.service';
 import {Message, MessageService} from '../../services/message.service';
 import {interval, Subscription} from 'rxjs';
 
@@ -62,7 +62,7 @@ export class PageChatComponent implements OnInit, OnDestroy{
 
     this.messageSub.unsubscribe();
 
-    this.getMessages(contact); // Immediate load
+    this.getMessages(contact);
     this.messageSub = interval(1000).subscribe(() => {
       this.getMessages(contact);
     });
@@ -86,6 +86,9 @@ export class PageChatComponent implements OnInit, OnDestroy{
           !this.areMessagesEqual(this.messages, formatted)) {
           this.messages = [...formatted];
         }
+
+        this.messages.reverse();
+
       }
     });
   }
