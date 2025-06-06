@@ -6,7 +6,7 @@
     </div>
     <div class="chat-list">
       <div class="chat-item" *ngFor="let contact of contacts" (click)="selectChat(contact)">
-        <div class="avatar">{{ contact.charAt(0) }}</div>
+        <div class="avatar">{{ contact.charAt(0).toUpperCase() }}</div>
         <div class="chat-info">
           <h4>{{ contact }}</h4>
         </div>
@@ -16,8 +16,8 @@
 
 
   <div class="chat-area" *ngIf="selectedContact">
-    <div class="chat-header">
-      <h3>{{ selectedContact.name }}</h3>
+    <div class="sidebar-header chat-header">
+      <h3>{{ selectedContact }}</h3>
     </div>
     <div class="chat-messages">
       <div

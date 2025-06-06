@@ -53,3 +53,15 @@ input {
   width: 100%;
 }
 
+.role-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+p-dropdown {
+  width: 100%;
+}
+

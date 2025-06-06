@@ -9,7 +9,7 @@
       <input pInputText type="password" id="password" [formControl]="passwordLoginControl"/>
       <label for="password">Password</label>
     </p-float-label>
-    <p-button (onClick)="connectUser()" [disabled]="getFormCompletedLogIn()"  label="Log in"></p-button>
+    <p-button (onClick)="connectUser()" [disabled]="!getFormCompletedLogIn()"  label="Log in"></p-button>
     <a (click)="changeLogin()">Sign up</a>
   </div>
 

@@ -81,7 +81,7 @@ export class UserService {
     return !!this.getCurrentUser();
   }
 
-  private setCurrentUser(user: User): void {
+  setCurrentUser(user: User): void {
     this.currentUserSubject.next(user);
     localStorage.setItem('currentUser', JSON.stringify(user));
   }

@@ -9,11 +9,16 @@
 
 .logo {
   font-weight: bold;
+  color : white;
 }
 
 .custom-avatar {
   background-color: white !important;
   color: black !important;
   cursor : pointer;
+}
+
+.header-btn {
+  margin-right: 10px;
 }
 

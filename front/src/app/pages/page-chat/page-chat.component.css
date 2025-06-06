@@ -4,6 +4,10 @@
   flex: 1;
 }
 
+h3 {
+  margin : 0;
+}
+
 .messenger-container {
   display: flex;
   flex: 1;
@@ -71,10 +75,8 @@
 }
 
 .chat-header {
-  padding: 1rem;
   background-color: #128c7e;
   color: white;
-  font-size: 1.2rem;
 }
 
 .chat-messages {

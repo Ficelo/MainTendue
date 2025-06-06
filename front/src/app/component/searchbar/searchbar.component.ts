@@ -22,19 +22,23 @@ export class SearchbarComponent {
   constructor(protected router : Router, private route : ActivatedRoute) {
   }
 
-  // ngOnInit() {
-  //
-  //   this.route.queryParams.subscribe(params => {
-  //     const searchParam = params['r'];
-  //     if (searchParam) {
-  //       this.searchControl.setValue(searchParam);
-  //     }
-  //   });
-  //
-  // }
+  ngOnInit() {
+
+    this.route.queryParams.subscribe(params => {
+      const searchParam = params['r'];
+      if (searchParam) {
+        this.searchControl.setValue(searchParam);
+      }
+    });
+
+  }
 
   rechercher() {
     this.router.navigate(["search"], {queryParams : {r : this.searchControl.value}})
+  }
+
+  clearSearchInput() {
+    this.searchControl.setValue('');
   }
 
 }

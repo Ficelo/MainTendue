@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {Friend, User, UserService} from '../../services/user.service';
@@ -17,7 +17,7 @@ import {interval, Subscription} from 'rxjs';
   standalone: true,
   styleUrl: './page-chat.component.css'
 })
-export class PageChatComponent implements OnInit{
+export class PageChatComponent implements OnInit, OnDestroy{
 
   contacts : string[] = []
   currentUser! : User;
@@ -59,11 +59,15 @@ export class PageChatComponent implements OnInit{
 
   selectChat(contact: any) {
     this.selectedContact = contact;
-    this.messageSub = interval(500).subscribe(() => {
-      this.getMessages(contact);
-    })
 
+    this.messageSub.unsubscribe();
+
+    this.getMessages(contact); // Immediate load
+    this.messageSub = interval(1000).subscribe(() => {
+      this.getMessages(contact);
+    });
   }
+
 
   getMessages(contact: string) {
     this.messageService.getMessagesByUsername(this.currentUser.username).subscribe({
@@ -78,13 +82,16 @@ export class PageChatComponent implements OnInit{
           fromMe: msg.sender_username === this.currentUser.username
         }));
 
-        formatted.reverse();
-
-        if (JSON.stringify(this.messages) !== JSON.stringify(formatted)) {
-          this.messages = formatted;
+        if (this.messages.length !== formatted.length ||
+          !this.areMessagesEqual(this.messages, formatted)) {
+          this.messages = [...formatted];
         }
       }
     });
+  }
+
+  private areMessagesEqual(a: { text: string; fromMe: boolean }[], b: { text: string; fromMe: boolean }[]): boolean {
+    return a.every((msg, i) => b[i] && msg.text === b[i].text && msg.fromMe === b[i].fromMe);
   }
 
 
@@ -99,6 +106,10 @@ export class PageChatComponent implements OnInit{
       // this.messages.push({ text: , fromMe: true });
       this.newMessage = '';
     }
+  }
+
+  ngOnDestroy() {
+    this.messageSub.unsubscribe();
   }
 
 }
