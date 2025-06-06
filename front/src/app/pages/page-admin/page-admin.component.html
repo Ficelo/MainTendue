@@ -1,0 +1,24 @@
+<div class="search-container">
+  <div class="search-bar">
+    <p-floatlabel variant="on" class="search-input">
+      <input
+        pInputText
+        id="over_label"
+        autocomplete="off"
+        (keyup.enter)="rechercher()"
+        [formControl]="searchControl"
+      />
+      <label for="over_label"><i class="pi pi-search"></i> Search</label>
+    </p-floatlabel>
+    <p-button
+      label="Search"
+      icon="pi pi-search"
+      (click)="rechercher()"
+      class="search-button"
+    ></p-button>
+  </div>
+
+  <div class="results-list">
+    <app-admin-result *ngFor="let user of users" [user]="user"></app-admin-result>
+  </div>
+</div>

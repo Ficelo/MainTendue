@@ -1,0 +1,18 @@
+.cgu-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.cgu-container h1,
+.cgu-container h2 {
+  color: #2c3e50;
+}
+
+.cgu-container ul {
+  padding-left: 1.5rem;
+}

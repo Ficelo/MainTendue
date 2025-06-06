@@ -1,0 +1,62 @@
+<div class="auth-wrapper">
+
+  <div id="login" *ngIf="login">
+    <p-float-label variant="on">
+      <input pInputText id="username" [formControl]="usernameLoginControl"/>
+      <label for="username">Username</label>
+    </p-float-label>
+    <p-float-label variant="on">
+      <input pInputText type="password" id="password" [formControl]="passwordLoginControl"/>
+      <label for="password">Password</label>
+    </p-float-label>
+    <p-button (onClick)="connectUser()" [disabled]="getFormCompletedLogIn()"  label="Log in"></p-button>
+    <a (click)="changeLogin()">Sign up</a>
+  </div>
+
+  <div id="sign-in" *ngIf="!login">
+    <p-float-label variant="on">
+      <input pInputText id="email-signup" [formControl]="emailControl"/>
+      <label for="email-signup">Email</label>
+    </p-float-label>
+
+    <div class="role-options">
+      <label for="aidant">Aidant </label>
+      <p-radio-button
+        id="aidant"
+        name="role"
+        value="Aidant"
+        [(ngModel)]="selectedRole"
+        inputId="aidant"
+        label="Aidant"></p-radio-button>
+
+      <label for="aide">Aidé </label>
+      <p-radio-button
+        id="aide"
+        name="role"
+        value="Aidé"
+        [(ngModel)]="selectedRole"
+        inputId="aide"
+        label="Aidé"></p-radio-button>
+    </div>
+
+    <div *ngIf="selectedRole === 'Aidé'">
+      <p-dropdown
+        [options]="selectOptions"
+        [(ngModel)]="selectedSituation"
+        placeholder="Sélectionnez une situation">
+      </p-dropdown>
+    </div>
+
+    <p-float-label variant="on">
+      <input pInputText id="username-signup" [formControl]="usernameControl"/>
+      <label for="username-signup">Username</label>
+    </p-float-label>
+    <p-float-label variant="on">
+      <input pInputText type="password" id="password-signup" [formControl]="passwordControl"/>
+      <label for="password-signup">Password</label>
+    </p-float-label>
+    <p-button (onClick)="createUser()" [disabled]="!getFormCompletedSignIn()" label="Create account"></p-button>
+    <a (click)="changeLogin()">Already have an account ? Log in</a>
+  </div>
+
+</div>

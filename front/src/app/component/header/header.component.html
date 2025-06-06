@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="logo" routerLink="">LOGO</div>
+  <div class="buttons">
+    <div *ngIf="!userService.isLoggedIn()">
+      <p-button routerLink="login">Log in</p-button>
+      <p-button routerLink="login">Sign up</p-button>
+    </div>
+    <div *ngIf="userService.isLoggedIn()">
+      <p-button label="Log out" (click)="userService.logout()"></p-button>
+      <p-button routerLink="chat" icon="pi pi-send"></p-button>
+      <p-avatar label="{{user.username[0].toUpperCase()}}" class="custom-avatar" size="large" routerLink="profil"></p-avatar>
+    </div>
+
+  </div>
+</header>

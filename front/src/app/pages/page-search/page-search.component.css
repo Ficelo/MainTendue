@@ -1,0 +1,28 @@
+.results {
+  width: 100%;
+}
+
+.search-page {
+  margin: 2% 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+}

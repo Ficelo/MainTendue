@@ -1,0 +1,7 @@
+<div class="friend-request">
+  <span class="friend-username">{{friend.username_init}}</span>
+  <div class="friend-buttons">
+    <p-button [disabled]="disabled" label="Accepter" class="accept-btn" (click)="accept()"></p-button>
+    <p-button [disabled]="disabled" label="Refuser" class="reject-btn" (click)="deny()"></p-button>
+  </div>
+</div>

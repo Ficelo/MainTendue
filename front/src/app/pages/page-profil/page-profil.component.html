@@ -1,0 +1,43 @@
+<div class="settings-container">
+  <h2>Paramètres du compte</h2>
+
+  <div class="form-group">
+    <label for="username">Nom d'utilisateur</label>
+    <input id="username" pInputText placeholder="Nom d'utilisateur" value="{{user.username}}" />
+    <p-button label="Modifier" class="modify-btn"></p-button>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" pInputText placeholder="Email" value="{{user.email}}"/>
+    <p-button label="Modifier" class="modify-btn"></p-button>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Mot de passe</label>
+    <input id="password" pInputText placeholder="Mot de passe" type="password" />
+    <p-button label="Modifier" class="modify-btn"></p-button>
+  </div>
+
+  <h2>Interests</h2>
+
+  <div class="form-group">
+    <label for="interest">Interest</label>
+    <input id="interest" pInputText placeholder="" />
+    <p-button label="Ajouter" class="modify-btn"></p-button>
+  </div>
+
+  <div class="interests">
+
+  </div>
+
+  <h2>Demande d'amis</h2>
+
+  <div class="demandes">
+    <app-demandes *ngFor="let dem of demandes" [friend]="dem"></app-demandes>
+  </div>
+
+
+  <p-button *ngIf="isAdmin" routerLink="/admin">Accéder à la page admin</p-button>
+
+</div>

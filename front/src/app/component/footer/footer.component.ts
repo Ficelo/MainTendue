@@ -1,0 +1,17 @@
+import { Component } from '@angular/core';
+import {UserService} from '../../services/user.service';
+import {RouterLink} from '@angular/router';
+
+@Component({
+  selector: 'app-footer',
+  imports: [
+    RouterLink
+  ],
+  templateUrl: './footer.component.html',
+  standalone: true,
+  styleUrl: './footer.component.css'
+})
+export class FooterComponent {
+
+
+}

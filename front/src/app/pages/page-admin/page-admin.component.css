@@ -1,0 +1,31 @@
+.search-container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-button ::ng-deep .p-button {
+  height: 100%;
+  background-color: #007ad9;
+  border-color: #007ad9;
+  color: white;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

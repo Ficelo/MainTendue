@@ -1,0 +1,30 @@
+.friend-request {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.friend-username {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.friend-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.accept-btn .p-button {
+  background-color: #28a745;
+  border: none;
+}
+
+.reject-btn .p-button {
+  background-color: #dc3545;
+  border: none;
+}

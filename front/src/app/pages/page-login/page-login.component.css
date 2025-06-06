@@ -1,0 +1,55 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f5f8fa;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+#login, #sign-in {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #e1e8ed;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  font-family: Arial, sans-serif;
+}
+
+p-float-label {
+  width: 100%;
+}
+
+p-button {
+  width: 100%;
+}
+
+a {
+  text-align: center;
+  color: #1d9bf0;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input {
+  width: 100%;
+}
+

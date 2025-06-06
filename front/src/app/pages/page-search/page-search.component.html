@@ -1,0 +1,17 @@
+<div class="search-page">
+  <div class="search-bar">
+    <app-searchbar></app-searchbar>
+    <p-button label="Rechercher" (click)="search()"></p-button>
+  </div>
+
+  <div class="filters">
+    <p-dropdown placeholder="Nb. d'amis" [options]="selectOptionsAmis" [(ngModel)]="selectedAmis"></p-dropdown>
+    <p-dropdown placeholder="Condition" [options]="selectOptionsCondition" [(ngModel)]="selectedSituation"></p-dropdown>
+    <p-dropdown placeholder="Centre d'intérêt" [options]="selectedOptionInterest" [(ngModel)]="selectedInterest"></p-dropdown>
+    <p-button (click)="resetFilters()">Reset Filters</p-button>
+  </div>
+
+  <div class="results">
+    <app-search-result *ngFor="let user of results" [user]="user"></app-search-result>
+  </div>
+</div>

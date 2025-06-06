@@ -1,0 +1,10 @@
+<div class="user-card">
+  <div class="user-info">
+    <p-avatar label="{{ user.username[0].toUpperCase() }}"></p-avatar>
+    <p class="username">{{ user.username }}</p>
+  </div>
+  <div class="user-actions">
+    <p-button [disabled]="disabled" label="Suspendre" class="request-button orange-btn" (click)="suspendre()"></p-button>
+    <p-button [disabled]="disabled" label="Bannir" class="request-button red-btn" (click)="bannir()"></p-button>
+  </div>
+</div>

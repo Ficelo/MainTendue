@@ -1,0 +1,38 @@
+.settings-container {
+  padding: 40px 30px;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-left: 40px;
+}
+
+.settings-container h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  flex: 0 0 130px;
+  font-weight: 500;
+  color: #555;
+}
+
+input[pInputText] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.modify-btn {
+  width: 100px;
+}
