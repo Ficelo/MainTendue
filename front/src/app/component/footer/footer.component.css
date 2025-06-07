@@ -1,6 +1,10 @@
 .footer {
-  background: #d3d3d3;
+  background: #FFF8EE;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   margin-top: auto;
+}
+
+span {
+  cursor: pointer;
 }

@@ -1,13 +1,13 @@
 <header class="header">
-  <div class="logo" routerLink="">Main tendue</div>
+  <div class="logo" routerLink=""><img src="assets/images/logo_transparent_no_text.png"></div>
   <div class="buttons">
     <div *ngIf="!userService.isLoggedIn()">
       <p-button routerLink="login" label="Log in" class="header-btn"></p-button>
       <p-button routerLink="login" label="Sign up" class="header-btn"></p-button>
     </div>
     <div *ngIf="userService.isLoggedIn()">
-      <p-button icon="pi pi-sign-out" (click)="userService.logout()" class="header-btn"></p-button>
-      <p-button icon="pi pi-send" routerLink="chat" class="header-btn"></p-button>
+      <p-button icon="pi pi-sign-out" (click)="userService.logout()" class="header-btn red-button"></p-button>
+      <p-button icon="pi pi-send" routerLink="chat" class="header-btn red-button"></p-button>
       <p-avatar label="{{user.username[0].toUpperCase()}}" class="custom-avatar" size="large" routerLink="profil"></p-avatar>
     </div>
   </div>

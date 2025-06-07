@@ -31,13 +31,13 @@
 }
 
 .orange-btn ::ng-deep .p-button {
-  background-color: orange;
-  border-color: orange;
+  background-color: orange !important;
+  border-color: orange !important;
   color: white;
 }
 
 .red-btn ::ng-deep .p-button {
-  background-color: red;
-  border-color: red;
+  background-color: red !important;
+  border-color: red !important;
   color: white;
 }
