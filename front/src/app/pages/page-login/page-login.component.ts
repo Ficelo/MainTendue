@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AbstractControl, FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {InputText} from 'primeng/inputtext';
 import {FloatLabel} from 'primeng/floatlabel';
 import {NgIf} from '@angular/common';
@@ -43,6 +43,18 @@ export class PageLoginComponent {
     { label: 'Handicap Mental', value: 'mental' },
   ];
 
+  usernameLoginControl = new FormControl("");
+  passwordLoginControl = new FormControl("");
+
+  usernameControl = new FormControl("");
+  passwordControl = new FormControl("");
+  protected emailControl = new FormControl("", [Validators.required, this.atSymbolValidator]);
+
+  atSymbolValidator(control: AbstractControl) {
+    const value = control.value;
+    return value && value.includes('@') ? null : { missingAt: true };
+  }
+
   constructor(private userService : UserService) {
 
     this.user = {
@@ -54,12 +66,7 @@ export class PageLoginComponent {
 
   }
 
-  usernameLoginControl = new FormControl("");
-  passwordLoginControl = new FormControl("");
 
-  usernameControl = new FormControl("");
-  passwordControl = new FormControl("");
-  emailControl = new FormControl("");
 
 
   connectUser(username : string = "", password : string = "") {

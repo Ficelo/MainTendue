@@ -18,6 +18,12 @@
       <input pInputText id="email-signup" [formControl]="emailControl"/>
       <label for="email-signup">Email</label>
     </p-float-label>
+    <p *ngIf="emailControl.hasError('missingAt') && !emailControl.untouched" style="color: red;">
+      L'email doit contenir un symbole '&#64;'
+    </p>
+    <p *ngIf="emailControl.hasError('required') && !emailControl.untouched" style="color: red;">
+      L'email est requis.
+    </p>
 
     <div class="role-options">
       <label for="aidant">Aidant </label>

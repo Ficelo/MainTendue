@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {InputText} from 'primeng/inputtext';
 import {Button} from 'primeng/button';
-import {Friend, Interest, User, UserService} from '../../services/user.service';
+import {Friend, User, UserService} from '../../services/user.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {DemandesComponent} from '../../component/demandes/demandes.component';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AbstractControl, FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Chip} from 'primeng/chip';
 import {INTERESTS} from '../../constants/app.constants';
 import {DropdownModule} from 'primeng/dropdown';
@@ -39,8 +39,13 @@ export class PageProfilComponent implements OnInit{
   selectedOptionInterest = INTERESTS;
 
   interestControl = new FormControl("");
-  emailControl = new FormControl("");
-  passwordControl = new FormControl("");
+  protected emailControl = new FormControl("");
+  passwordControl = new FormControl("", [Validators.required, this.atSymbolValidator]);
+
+  atSymbolValidator(control: AbstractControl) {
+    const value = control.value;
+    return value && value.includes('@') ? null : { missingAt: true };
+  }
 
   constructor(private userService : UserService) {
 

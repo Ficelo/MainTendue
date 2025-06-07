@@ -52,8 +52,6 @@ export class PageSearchComponent implements OnInit{
 
   search() {
 
-
-
     this.route.queryParams.subscribe(params => {
       const searchParam = params['r'];
       if (searchParam) {
@@ -109,9 +107,8 @@ export class PageSearchComponent implements OnInit{
   }
 
   ngOnInit() {
-
+    this.results = [];
     this.search();
-
   }
 
   resetFilters() {
@@ -127,6 +124,7 @@ export class PageSearchComponent implements OnInit{
       queryParamsHandling: 'merge'
     });
 
+    this.results = [];
     this.search();
   }
 }

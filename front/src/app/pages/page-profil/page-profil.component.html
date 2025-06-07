@@ -12,6 +12,12 @@
     <input id="email" pInputText placeholder="Email" value="{{user.email}}" [formControl]="emailControl" />
     <p-button label="Modifier" class="modify-btn" (click)="updateUser()"></p-button>
   </div>
+  <p *ngIf="emailControl.hasError('missingAt') && !emailControl.untouched" style="color: red;">
+    L'email doit contenir un symbole '&#64;'
+  </p>
+  <p *ngIf="emailControl.hasError('required') && !emailControl.untouched" style="color: red;">
+    L'email est requis.
+  </p>
 
   <div class="form-group">
     <label for="password">Mot de passe</label>
