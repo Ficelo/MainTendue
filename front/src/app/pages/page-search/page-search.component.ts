@@ -5,7 +5,7 @@ import {User, UserService} from '../../services/user.service';
 import {SearchResultComponent} from '../../component/search-result/search-result.component';
 import {NgForOf} from '@angular/common';
 import {DropdownModule} from 'primeng/dropdown';
-import {FormControl, FormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import { CONDITIONS, FRIEND_COUNT_OPTIONS, INTERESTS } from '../../constants/app.constants';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -76,15 +76,30 @@ export class PageSearchComponent implements OnInit{
             if (!this.currentUser) return;
 
             for (let u of value) {
-              if (this.currentUser.role === "Aidant" || this.currentUser.role === "admin") {
-                if (u.role === "Aidé") {
-                  this.results.push(u);
+
+              this.userService.getFriends(u.username).subscribe({
+                next: (value) => {
+                  // Check if the current user is already a friend
+                  const isAlreadyFriend = value.some(friend =>
+                    friend.username_friend === this.currentUser.username ||
+                    friend.username_init === this.currentUser.username
+                  );
+
+                  if (!isAlreadyFriend) {
+                    if (this.currentUser.role === "Aidant" || this.currentUser.role === "admin") {
+                      if (u.role === "Aidé") {
+                        this.results.push(u);
+                      }
+                    } else if (this.currentUser.role === "Aidé") {
+                      if (u.role === "Aidant") {
+                        this.results.push(u);
+                      }
+                    }
+                  }
                 }
-              } else if (this.currentUser.role === "Aidé") {
-                if (u.role === "Aidant") {
-                  this.results.push(u);
-                }
-              }
+              });
+
+
             }
           },
           error: (err) => console.error('Search failed', err)
