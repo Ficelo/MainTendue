@@ -1,5 +1,9 @@
 <app-header></app-header>
 <main class="main-content">
+  <p-dialog header="Information" [(visible)]="display" [modal]="true" [closable]="false" [style]="{width: '30vw'}">
+    <p>Attention aux informations que vous diffusez. Veuillez respecter toutes les personnes que vous pourriez rencontrer sur ce site.</p>
+    <p-button (click)="showDialog()">Je fais attention</p-button>
+  </p-dialog>
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
